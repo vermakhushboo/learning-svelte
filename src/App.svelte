@@ -19,6 +19,12 @@
 	}
 
 	$: sum = numbers.reduce((t, n) => t + n, 0);
+
+	let user = { loggedIn: false };
+
+	function toggle() {
+		user.loggedIn = !user.loggedIn;
+	}
 </script>
 
 <main>
@@ -33,6 +39,20 @@
 	<button on:click={addNumber}>
 		Add a number
 	</button>
+
+	<div>
+		{#if user.loggedIn}
+		<button on:click={toggle}>
+			Log out
+		</button>
+		{/if}
+
+		{#if !user.loggedIn}
+		<button on:click={toggle}>
+			Log in
+		</button>
+		{/if}
+	</div>
 </main>
 
 
