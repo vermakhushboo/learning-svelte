@@ -33,6 +33,16 @@
 		{ id: 'z_AbfPXTKms', name: 'Maru' },
 		{ id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
 	];
+
+	//DOM events
+	let m = { x: 0, y: 0 };
+
+	function handleMousemove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
+
+	let input_name = 'world';
 </script>
 
 <main>
@@ -62,6 +72,11 @@
 		</button>
 		{/if}
 	</div>
+
+	<input bind:value={input_name}>
+
+	<h3>Hello {input_name}!</h3>
+	
 </main>
 
 <!-- each loop -->
@@ -74,6 +89,9 @@
 	{/each}
 </ul>
 
+<div on:mousemove={handleMousemove} style="width:100%; height:100%;">
+	The mouse position is {m.x} x {m.y}
+</div>
 
 <style>
 	main {
