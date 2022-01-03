@@ -20,11 +20,19 @@
 
 	$: sum = numbers.reduce((t, n) => t + n, 0);
 
+	//if else
 	let user = { loggedIn: false };
 
 	function toggle() {
 		user.loggedIn = !user.loggedIn;
 	}
+
+	//each loop
+	let cats = [
+		{ id: 'J---aiyznGQ', name: 'Keyboard Cat' },
+		{ id: 'z_AbfPXTKms', name: 'Maru' },
+		{ id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+	];
 </script>
 
 <main>
@@ -40,6 +48,7 @@
 		Add a number
 	</button>
 
+	<!--if else-->
 	<div>
 		{#if user.loggedIn}
 		<button on:click={toggle}>
@@ -55,6 +64,15 @@
 	</div>
 </main>
 
+<!-- each loop -->
+<h2>The Famous Cats of YouTube</h2>
+<ul>
+	{#each cats as cat, i}
+		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
+			{i+1}: {cat.name}
+		</a></li>
+	{/each}
+</ul>
 
 
 <style>
